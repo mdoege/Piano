@@ -38,7 +38,7 @@ class Piano:
         pygame.mixer.init()
         self.volume = 5
         self.octave = 1
-        self.sust = True
+        self.sust = False
         self.load_inst()
         self.setvol()
         self.overlay = pygame.image.load("img/piano.png")
@@ -209,7 +209,8 @@ class Piano:
 
     def stop(self, k, user = True):
         "Stop playing a note"
-        self.audio[k].stop()
+        if self.sust:
+            self.audio[k].stop()
         self.sustain[k].stop()
         self.keys[k] = False
 
