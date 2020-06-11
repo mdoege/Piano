@@ -38,6 +38,7 @@ class Piano:
         pygame.mixer.init()
         self.volume = 5
         self.octave = 1
+        self.sust = True
         self.load_inst()
         self.setvol()
         self.overlay = pygame.image.load("img/piano.png")
@@ -108,6 +109,9 @@ class Piano:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.stopall()
+
+                if event.key == pygame.K_c:
+                    self.sust = not self.sust
 
                 # volume
                 if event.key == pygame.K_b:
@@ -199,7 +203,7 @@ class Piano:
     def play(self, k, user = True):
         "Play a note"
         self.audio[k].play()
-        if user:
+        if user and self.sust:
             self.sustain[k].play(loops = -1)
         self.keys[k] = True
 
