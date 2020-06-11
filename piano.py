@@ -64,6 +64,7 @@ class Piano:
             self.audio[n] = pygame.mixer.Sound("snd/piano%s_%02u.ogg" % (o, n))
             self.sustain[n] = pygame.mixer.Sound("snd/piano%s_sustain_%02u.ogg" % (o, n))
         self.audio["buzz"] = pygame.mixer.Sound("snd/buzz.ogg")
+        self.setvol()
 
     def setvol(self):
         "Set volume for all loaded sounds"
