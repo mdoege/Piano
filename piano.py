@@ -61,9 +61,9 @@ class Piano:
         else:
             o = ""
         for n in range(13):
-            self.audio[n] = pygame.mixer.Sound("snd/piano%s_%02u.ogg" % (o, n))
-            self.sustain[n] = pygame.mixer.Sound("snd/piano%s_sustain_%02u.ogg" % (o, n))
-        self.audio["buzz"] = pygame.mixer.Sound("snd/buzz.ogg")
+            self.audio[n] = pygame.mixer.Sound("snd/piano%s_%02u.wav" % (o, n))
+            self.sustain[n] = pygame.mixer.Sound("snd/piano%s_sustain_%02u.wav" % (o, n))
+        self.audio["buzz"] = pygame.mixer.Sound("snd/buzz.wav")
         self.setvol()
 
     def setvol(self):
